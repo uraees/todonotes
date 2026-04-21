@@ -1,0 +1,5 @@
+node_modules/
+.env
+*.log
+.DS_Store
+google-todonotes-app-491417-6939d9a688bc.json

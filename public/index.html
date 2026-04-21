@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TodoNotes</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="auth-overlay hidden" id="authOverlay" aria-hidden="true">
+    <div class="auth-card">
+      <div class="auth-eyebrow">Protected Workspace</div>
+      <h1 class="auth-title">Enter access code</h1>
+      <p class="auth-copy">This TodoNotes workspace is locked. Enter the shared code to continue.</p>
+      <form class="auth-form" id="authForm">
+        <label class="auth-label" for="authCode">Access code</label>
+        <input
+          id="authCode"
+          class="auth-input"
+          type="password"
+          inputmode="numeric"
+          autocomplete="one-time-code"
+          placeholder="Enter code"
+          required
+        />
+        <button id="authSubmitBtn" class="auth-submit" type="submit">Unlock</button>
+      </form>
+      <div id="authError" class="auth-error hidden" role="alert"></div>
+    </div>
+  </div>
+
+  <div class="app">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-inner">
+        <div class="logo">
+          <span class="logo-icon">⬡</span>
+          <span class="logo-text">TodoNotes</span>
+        </div>
+        <div class="header-meta" id="headerMeta">Loading…</div>
+      </div>
+    </header>
+
+    <!-- Command input -->
+    <section class="command-section">
+      <div class="command-inner">
+        <label class="command-label" for="commandInput">What would you like to do?</label>
+        <div class="command-row">
+          <textarea
+            id="commandInput"
+            class="command-input"
+            placeholder="e.g. &quot;Add a reminder to file taxes by Friday&quot; · &quot;What's due this week?&quot; · &quot;Mark the rent task as done&quot;"
+            rows="2"
+            autocomplete="off"
+            spellcheck="true"
+          ></textarea>
+          <button id="micBtn" class="mic-btn" title="Speak your command" aria-label="Start voice input">
+            <span class="mic-icon">🎤</span>
+          </button>
+          <button id="submitBtn" class="submit-btn" title="Execute (Ctrl+Enter)">
+            <span class="submit-icon">→</span>
+            <span class="submit-label">Execute</span>
+          </button>
+        </div>
+        <div id="feedbackBar" class="feedback hidden" role="alert"></div>
+      </div>
+    </section>
+
+    <!-- Items board -->
+    <main class="board" id="board">
+      <div class="loading-state" id="loadingState">
+        <div class="spinner"></div>
+        <span>Loading your items…</span>
+      </div>
+    </main>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

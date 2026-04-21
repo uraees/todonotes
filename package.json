@@ -1,0 +1,22 @@
+{
+  "name": "todonotes",
+  "version": "1.0.0",
+  "description": "Natural language notes and todo manager backed by Google Sheets",
+  "type": "module",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "concurrently -n node,ngrok -c cyan,yellow \"node server/index.js\" \"ngrok http --domain=quiana-nonoxygenated-pseudomythically.ngrok-free.dev 3000\"",
+    "dev": "concurrently -n node,ngrok -c cyan,yellow \"node --watch server/index.js\" \"ngrok http --domain=quiana-nonoxygenated-pseudomythically.ngrok-free.dev 3000\""
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "googleapis": "^144.0.0",
+    "openai": "^6.33.0",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
